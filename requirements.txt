@@ -1,0 +1,7 @@
+numpy~=1.26.4
+gymnasium~=1.0.0
+opencv-python~=4.11.0.86
+pygame~=2.6.1
+ocatari~=2.1.0
+stable_baselines3~=2.5.0
+gymnasium[atari, accept-rom-license]

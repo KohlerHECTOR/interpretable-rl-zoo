@@ -1,0 +1,22 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Virtual Environment
+venv/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Local configuration
+*.log
+.DS_Store

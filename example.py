@@ -8,6 +8,8 @@ if __name__ == '__main__':
     done = False
     total_reward = 0
 
+    print_policy(tree_policy)
+
     while not done:
         action = tree_policy.play(observation)
 

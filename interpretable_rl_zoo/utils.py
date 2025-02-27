@@ -10,7 +10,6 @@ from stable_baselines3.common.vec_env import VecFrameStack
 from stable_baselines3.common.env_util import make_atari_env
 
 from huggingface_sb3 import load_from_hub
-from stable_baselines3 import PPO, DQN, SAC
 from stable_baselines3.common.vec_env import VecNormalize, DummyVecEnv
 import gymnasium as gym
 
@@ -388,7 +387,7 @@ class Unvec(gym.Env):
     def render(self):
         return self.env.envs[0].render()
 
-def load_policy_from_hf(env_name, algo="PPO", load_replay_buffer=False, **kwargs):
+def load_env_from_hf(env_name, algo="PPO", **kwargs):
     """
     Load a pre-trained policy from Hugging Face Hub.
 
@@ -412,19 +411,6 @@ def load_policy_from_hf(env_name, algo="PPO", load_replay_buffer=False, **kwargs
     try:
         # Get the algorithm class
         repo_id = f"sb3/{algo.lower()}-{env_name}"
-        algo_class = {"PPO": PPO, "SAC": SAC, "DQN": DQN}[algo]
-
-        # Load the model checkpoint
-        checkpoint = load_from_hub(
-            repo_id=repo_id,
-            filename=f"{algo.lower()}-{env_name}.zip",
-        )
-
-        # Load the model
-        if algo_class == DQN and "NoFrameskip" in env_name:
-            model = algo_class.load(checkpoint, device="cpu", optimize_memory_usage=False)
-        else:
-            model = algo_class.load(checkpoint, device="cpu")
 
         if env_name in ["Ant-v3", "Swimmer-v3", "Walker2d-v3", "Humanoid-v3", "Hopper-v3", "HalfCheetah-v3"]:
             env_name = env_name.split("-")[0] + "-v4"
@@ -455,19 +441,7 @@ def load_policy_from_hf(env_name, algo="PPO", load_replay_buffer=False, **kwargs
                 env = gym.make(env_name, healthy_angle_range=(-0.24, 0.24), **kwargs)
             else:
                 env = gym.make(env_name, **kwargs)
-
-        # Attempt to load replay buffer if requested and algorithm supports it
-        if load_replay_buffer and algo in ["DQN", "SAC"]:
-            try:
-                replay_buffer_path = load_from_hub(
-                    repo_id=repo_id,
-                    filename="replay_buffer.pkl"
-                )
-                model.load_replay_buffer(replay_buffer_path)
-            except Exception as e:
-                print(f"Could not load replay buffer: {str(e)}")
-
-        return model, env
+        return env
 
 
     except Exception as e:

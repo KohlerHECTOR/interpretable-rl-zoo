@@ -1,10 +1,4 @@
-numpy~=1.26.4
-opencv-python~=4.11.0.86
-pygame~=2.6.1
-ocatari~=2.1.0
-stable_baselines3~=2.5.0
-gymnasium[mujoco,accept-rom-license]==0.29.1
+stable_baselines3==2.4.1
+gymnasium[atari,mujoco,accept-rom-license]==0.29.1
 huggingface-sb3==3.0
-box2d-py==2.3.5
-pygame==2.5.2
 git+https://github.com/k4ntz/OC_Atari.git

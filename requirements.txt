@@ -1,4 +1,5 @@
 stable_baselines3==2.4.1
-gymnasium[atari,mujoco,accept-rom-license,box2d]==0.29.1
+gymnasium[atari,accept-rom-license,box2d]==0.29.1
+mujoco==2.3.3
 huggingface-sb3==3.0
 ocatari

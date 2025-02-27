@@ -1,4 +1,4 @@
 stable_baselines3==2.4.1
-gymnasium[atari,mujoco,accept-rom-license]==0.29.1
+gymnasium[atari,mujoco,accept-rom-license,box2d]==0.29.1
 huggingface-sb3==3.0
-git+https://github.com/k4ntz/OC_Atari.git
+ocatari

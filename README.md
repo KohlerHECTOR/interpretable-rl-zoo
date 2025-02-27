@@ -4,13 +4,13 @@ A collection of human-understandable reinforcement learning policies implemented
 
 ## Overview
 
-The Interpretable RL Zoo contains policies that have been distilled from the [Stable-Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) experts into various interpretable learners:
+The Interpretable RL Zoo contains policies that have been distilled from the [Stable-Baselines3 Zoo](https://github.com/DLR-RM/rl-baselines3-zoo) experts into various interpretable policy classes:
 - Decision Trees
 - Oblique Trees
 - Multi-Layer Perceptrons (MLPs)
-- And more...
+- Linear
 
-Each policy is available in multiple sizes:
+Policy have multiple sizes (number of parameters):
 - Tiny
 - Small
 - Medium
@@ -62,10 +62,9 @@ All policies are located in the `interpretable_rl_zoo/policy` directory, organiz
 ```
 interpretable_rl_zoo/policy/
 ├── pong_no_frameskip/
-│   ├── tree_tiny.py
 │   ├── tree_small.py
 │   ├── ...
-│   └── mlp_small.py
+│   └── mlp_large.py
 ├── cartpole/
 │   ├── ...
 ├── lunar_lander/
@@ -92,19 +91,4 @@ This will output a human-readable representation of the policy decision-making p
 
 ## Available Environments
 
-The library currently supports policies for the following environments Atari, Classic Control and Mujoco.
-
-## Educational Use
-
-These interpretable policies are particularly useful for:
-- Teaching reinforcement learning concepts
-- Understanding decision boundaries in RL policies
-- Comparing different model architectures and sizes
-- Introducing students to RL without deep neural networks
-
-## How Policies Are Created
-
-The policies in this library are created through a process of:
-1. Training expert policies using Stable-Baselines3 algorithms
-2. Distilling the expert behavior into interpretable models (trees, MLPs, etc.)
-3. Converting the learned models into standalone Python scripts
+The library currently supports policies for the following environments OCAtari, Classic Control and Mujoco.

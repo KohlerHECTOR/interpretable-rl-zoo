@@ -96,7 +96,6 @@ class OCAtariDQN:
         self.ns_meaning = [f"{o.category} ({o._ns_meaning})" for o in self._slots]
         self.observation_space = gym.spaces.Box(
             0, 255.0, (get_object_state_size(self.game_name, self.hud) + len(self._ns_state),))
-        print(self._ns_state, self.ns_meaning)
         self.action_space = self._env.action_space
 
         # Get ALE interface from the base environment

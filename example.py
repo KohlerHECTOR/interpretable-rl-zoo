@@ -1,5 +1,5 @@
 from interpretable_rl_zoo import make_env_from_metadata, print_policy
-import  interpretable_rl_zoo.policy.lunar_lander.tree_small as tree_policy
+import  interpretable_rl_zoo.policy.pong_no_frameskip.tree_huge as tree_policy
 
 if __name__ == '__main__':
     env = make_env_from_metadata(tree_policy.metadata, render_mode="human")

@@ -1,5 +1,5 @@
 # Interpretable Reinforcement Learning Zoo
-
+**TESTED ON PYTHON 3.10**
 A collection of human-understandable reinforcement learning policies implemented as simple Python scripts. This library provides interpretable versions of complex RL policies, making them accessible for educational purposes and research.
 
 ## Overview

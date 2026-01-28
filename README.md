@@ -92,3 +92,13 @@ This will output a human-readable representation of the policy decision-making p
 ## Available Environments
 
 The library currently supports policies for the following environments OCAtari, Classic Control and Mujoco.
+
+## Cite
+@inproceedings{
+kohler2025evaluating,
+title={Evaluating Interpretable Reinforcement Learning by Distilling Policies into Programs},
+author={Hector Kohler and Waris Radji and Quentin Delfosse and Riad Akrour and Philippe Preux},
+booktitle={RLC 2025 Workshop on Programmatic Reinforcement Learning},
+year={2025},
+url={https://openreview.net/forum?id=n1CfzixauT}
+}
